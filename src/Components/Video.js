@@ -4,27 +4,11 @@ import VIDEOS from "./../videos.json";
 const Video = () => {
   const { id } = useParams();
 
-  const notFound = "No videos available.";
-
-  /**
-   * Drugi nacin:
-   * let videoFound = null
-   * VIDEOS.forEach(video => {
-   *     if(video.id == id) {
-   *         videoFound = video
-   *     }
-   * }
-   */
-
   if (!Array.isArray(VIDEOS) || VIDEOS.length === 0) {
-    return <h2>{notFound}</h2>;
+    return <h2>No videos available.</h2>;
   }
 
   const found = VIDEOS.find((video) => video.id === parseInt(id));
-
-  if (found === null) {
-    return <h2>{notFound}</h2>;
-  }
 
   return (
     <>
